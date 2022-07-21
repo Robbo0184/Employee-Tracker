@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= employee.firstName %><%= employee.lastName %></title>
+
+  
+</head>
+<body>
+    <h2>
+        <%= employee.firstName %> <%= employee.lastName %>
+    </h2>
+    <ul>
+        <li>Employee Id: <%= employee.employeeId %>
+        </li>
+        <li>Position: <%= employee.position %>
+        </li>
+        <li>Profile Created At: <%= employee.createdAt %> </li>
+        <li>Is supervisor: <%= employee.isSupervisor %> </li>
+    </ul>
+    <a href="/employees">All Employees</a>
+    <a href="/employees/<%=employee._id%>/edit">Edit employee</a>
+    <form action="/employees/<%=employee._id%>?_method=DELETE" method="POST">
+    <button>Delete</button>
+    </form>
+</body>
+</html>

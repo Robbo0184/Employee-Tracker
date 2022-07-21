@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Employee</title>
+
+</head>
+<body>
+    <h2>Add new employee</h2>
+
+    <form action="/employees" enctype="application/x-www-form-urlencoded" method="POST">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" placeholder="first name">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" placeholder="last name">
+        <label for="employeeId">Employee Id</label>
+        <input type="number" name="employeeId" id="employeeId">
+        <label for="position">Position</label>
+        <input type="text" name="position" id="position" placeholder="position">
+        <label for="isSupervisor">Is Supervisor</label>
+        <input type="checkbox" name="isSupervisor" id="isSupervisor">
+        <button>Submit</button>
+    </form>
+</body>
+</html>

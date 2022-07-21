@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All Employees</title>
+    
+</head>
+
+<body>
+
+    <h2>All current employees</h2>
+    <ul>
+        <% for(let employee of employees) { %>
+            <li><a href="/employees/<%=employee._id%>">
+                    <%= employee.firstName %>
+                        <%= employee.lastName %>
+                </a> </li>
+            <% } %>
+    </ul>
+
+    <a href="/employees/new">Add new employee</a>
+
+
+
+</body>
+
+</html>
