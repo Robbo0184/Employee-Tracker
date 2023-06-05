@@ -2,28 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>All Employees</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+  <title>All Employees</title>
+  <link rel="stylesheet" href="/app.css">
 </head>
 
 <body>
+  <div class="index-container">
+    <div class="employee-index-header">
+      <h2>All Current Employees</h2>
+      <div class="search-employees-container">
+        <label id="searchEmployeesLabel" for="searchEmployees">Search Database:</label>
+        <input type="text" name="searchEmployees" id="searchEmployees" placeholder="enter name">
+      </div>
+    </div>
 
-    <h2>All current employees</h2>
-    <ul>
-        <% for(let employee of employees) { %>
-            <li><a href="/employees/<%=employee._id%>">
-                    <%= employee.firstName %>
-                        <%= employee.lastName %>
-                </a> </li>
-            <% } %>
-    </ul>
+    <div class="employee-index-list-container">
+      <% if(employees.length > 0) { %>
+        <% employees.forEach(function(employee) { %>
+          <div class="employee-name-link-container">
+            <p>
+              <a class="employee-name-link" href="/employees/<%= employee._id %>">
+                <%= employee.firstName %> <%= employee.lastName %>
+              </a>
+            </p>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <h2>No Employees Currently In Database</h2>
+      <% } %>
+    </div>
 
-    <a href="/employees/new">Add new employee</a>
+    <div class="add-employee-link">
+      <a class="employee-link" href="/employees/new">Add New Employee</a>
+    </div>
+  </div>
 
+  <script>
+    function filterEmployees() {
+      const searchInput = document.getElementById('searchEmployees').value.trim().toLowerCase();
+      const employeeNameLinks = document.getElementsByClassName('employee-name-link');
 
+      for (let i = 0; i < employeeNameLinks.length; i++) {
+        const employeeName = employeeNameLinks[i].innerText.toLowerCase();
+        if (employeeName.includes(searchInput)) {
+          employeeNameLinks[i].parentNode.style.display = 'block';
+        } else {
+          employeeNameLinks[i].parentNode.style.display = 'none';
+        }
+      }
+    }
 
+    document.getElementById('searchEmployees').addEventListener('input', filterEmployees);
+  </script>
 </body>
 
 </html>

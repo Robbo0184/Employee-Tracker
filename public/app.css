@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* index page */
+
+body {
+    height: 100vh;
+    background-color: rgb(255, 247, 247);
+    color: rgba(20, 20, 20, 0.7);
+    display: flex;
+    justify-content: center;
+}
+
+.index-container {
+    display: grid;
+    height: 70vh;
+    grid-template-areas: 
+    'header'
+    'list-container'
+    'list-container'
+    'add-employee';
+    grid-template-rows: 0.5fr 1.5fr 1.2fr;
+}
+
+
+.employee-index-header {
+    font-family: 'PT Sans Narrow', sans-serif;
+    display: grid;
+    justify-content: center;
+    grid-area: header;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(207, 250, 246);
+    padding: 1%;
+}
+
+.search-employees-container {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 1rem; */
+    
+}
+
+#searchEmployeesLabel {
+    font-size: larger;
+}
+
+#searchInputForm {
+    height: 5vh;
+}
+
+
+
+.employee-index-list-container {
+    display: grid;
+    padding: 2%;
+    grid-area: list-container;
+    background-color: rgb(137, 183, 184);
+    justify-content: center;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 3rem;
+    overflow: auto;
+}
+
+.employee-name-link-container {
+    display: grid;
+    font-family: 'Libre Baskerville', serif;
+    justify-content: center;
+    text-align: center;
+}
+
+.employee-name-link {
+    color: rgb(255, 255, 255);
+    font-size: large;
+}
+
+.employee-name-link:hover {
+    color:rgb(66, 74, 78);
+    font-size: larger;
+}
+
+.add-employee-link {
+    font-family: 'PT Sans Narrow', sans-serif;
+    display: grid;
+    grid-area: add-employee;
+    width: 80vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(100, 215, 217);
+    padding: 1rem;
+    /* offset-x | offset-y | blur-radius | spread-radius */
+    box-shadow: 5px 10px 10px -2px rgb(108, 108, 108);
+}
+
+.employee-link {
+    font-size: 1.4rem;
+}
+
+.employee-link:visited {
+    color: rgb(71, 102, 213);
+}
+
+.employee-link:hover {
+     color: gold;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .index-container {
+        grid-template-rows: 1fr;
+    }
+}
+/* a:visited {
+    color: rgba(20, 20, 20, 0.7);
+} */
+
+/* new employee form */
+
+.new-employee-body {
+    padding-top: 2rem;
+    background-color: rgb(255, 247, 247);
+}
+
+
+.new-employee-main {
+    padding: 2rem;
+    /* background-color: rgb(207, 250, 246); */
+    background-color: rgb(198, 246, 246);
+    height: 70vh;
+    box-shadow: 5px 10px 10px -2px rgb(108, 108, 108);
+}
+
+
+.new-employee-form-container {
+    background-color: rgb(137, 183, 184);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Libre Baskerville', serif;
+    width: 70vw;
+    height: 55vh;
+}
+
+.new-employee-header {
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 3rem;
+    /* padding-top: 0.2rem; */
+    height: 5vh;
+}
+
+.new-employee-h2 {
+    padding-bottom: 0.8rem;
+}
+
+form {
+    display: grid;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-employees-link-container {
+    text-align: center;
+}
+
+
+/* show page */
+
+.employee-show-container {
+    margin-top: 1.1rem;
+    background-color: rgb(137, 183, 184);
+    font-family: 'Libre Baskerville', serif;
+    display: grid;
+    width: 65vw;
+    height: 55vh;
+    justify-content: center;
+    color: white;
+    box-shadow: 5px 10px 10px -2px rgb(108, 108, 108);
+}
+
+.showpage-links-container {
+   padding-top: 4rem;
+   display: flex;
+   justify-content: space-around;
+}
+
+
+.show-page-name-h2 {
+    text-align: center;
+    margin-top: 1rem;
+   
+}
+
+.employee-info {
+    margin-top: 3rem;
+    
+}
+
+#employee-delete-button {
+    width: 6rem;
+    height: 2.4rem;
+    border-radius: 10px;
+}
+.showpage-delete-button-form {
+    padding-bottom: 3.5rem;
+}
+/* employee edit page */
+
+.edit-employee-container {
+    height: 55vh;
+    width: 70vw;
+    margin-top: 1rem;
+    font-family: 'Libre Baskerville', serif;
+    display: grid;
+    background-color: rgb(137, 183, 184);
+    grid-template-areas: 
+    'header'
+    'form'
+    'link';
+    grid-template-rows: 0.5fr 1.5fr 0.8fr;
+    
+}
+
+
+
+.edit-employee-header {
+    display: grid;
+    text-align: center;
+    background-color: rgb(207, 250, 246);
+    width: 70vw;
+    grid-area: header;
+    padding-top: 0.5rem;
+}
+
+
+.edit-employee-form {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-area: form;
+}
+
+.edit-page-submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-page-submit-button {
+    width: 5rem;
+    height: 2rem;
+    border: 1.5px solid rgb(108, 108, 108);
+    border-radius: 15%;
+}
+
+.all-employees-link {
+    grid-area: link;
+    text-align: center;
+    width: 70wv;
+    background-color: rgb(100, 215, 217);
+    padding-top: 1.5rem;
+    box-shadow: 5px 10px 10px -2px rgb(108, 108, 108);
+    font-size: large;
+}
+
+#edit-page-all-employees-link:hover{
+      font-size: larger;
+      color: gold;
+}

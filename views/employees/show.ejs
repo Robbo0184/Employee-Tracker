@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= employee.firstName %><%= employee.lastName %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/app.css">
+    <title>
+        <%= employee.firstName %>
+            <%= employee.lastName %>
+    </title>
 
-  
+
 </head>
+
 <body>
-    <h2>
-        <%= employee.firstName %> <%= employee.lastName %>
-    </h2>
-    <ul>
-        <li>Employee Id: <%= employee.employeeId %>
-        </li>
-        <li>Position: <%= employee.position %>
-        </li>
-        <li>Profile Created At: <%= employee.createdAt %> </li>
-        <li>Is supervisor: <%= employee.isSupervisor %> </li>
-    </ul>
-    <a href="/employees">All Employees</a>
-    <a href="/employees/<%=employee._id%>/edit">Edit employee</a>
-    <form action="/employees/<%=employee._id%>?_method=DELETE" method="POST">
-    <button>Delete</button>
-    </form>
+    <div class="employee-show-container">
+        <div>
+            <div>
+                <div class="show-page-h2-container">
+                    <h2 class="show-page-name-h2">
+                        <%= employee.firstName %>
+                            <%= employee.lastName %>
+                    </h2>
+                </div>
+                <div class="employee-info">
+                    <p>Employee Id: <%= employee.employeeId %>
+                    </p>
+                    <p>Position: <%= employee.position %>
+                    </p>
+                    <p>Profile Created At: <%= employee.createdAt %>
+                    </p>
+                    <p>Is supervisor: <%= employee.isSupervisor %>
+                    </p>
+                </div>
+                <div class="showpage-links-container">
+                    <a class="employee-link" href="/employees">All Employees</a>
+                    <a class="employee-link" href="/employees/<%=employee._id%>/edit">Edit Employee</a>
+                </div>
+               
+                    <form class="showpage-delete-button-form" action="/employees/<%=employee._id%>?_method=DELETE" method="POST">
+                        <button id="employee-delete-button" type="submit">Delete</button>
+                    </form>
+                
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

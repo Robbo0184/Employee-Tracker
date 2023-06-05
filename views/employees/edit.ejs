@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/app.css">
     <title>Edit Employee</title>
-    
 
 </head>
-<body>
-    <h2>Edit employee</h2>
 
-    <form action="/employees/<%=employee._id%>?_method=PUT" enctype="application/x-www-form-urlencoded" method="POST">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" placeholder="first name" value="<%=employee.firstName%>">
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" id="lastName" placeholder="last name" value="<%=employee.lastName%>">
-        <label for="position">Position</label>
-        <input type="text" name="position" id="position" placeholder="position" value="<%=employee.position%>">
-        <label for="isSupervisor">Is Supervisor</label>
-        <input type="checkbox" name="isSupervisor" id="isSupervisor">
-        <button>Submit</button>
-    </form>
+<body>
+    <div class="edit-employee-container">
+        <div class="edit-employee-header">
+            <h2>Edit Employee</h2>
+        </div>
+        <form class="edit-employee-form" action="/employees/<%=employee._id%>?_method=PUT"
+            enctype="application/x-www-form-urlencoded" method="POST">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder="first name" value="<%=employee.firstName%>">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder="last name" value="<%=employee.lastName%>">
+            <label for="position">Position</label>
+            <input type="text" name="position" id="position" placeholder="position" value="<%=employee.position%>">
+            <label for="isSupervisor">Is Supervisor</label>
+            <input type="checkbox" name="isSupervisor" id="isSupervisor">
+            <div class="edit-page-submit-button-container">
+                <button id="edit-page-submit-button" type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div class="all-employees-link">
+            <a id="edit-page-all-employees-link" href="/employees" class="text-decoration-none">All Employees</a>
+        </div>
+    </div>
 </body>
+
 </html>

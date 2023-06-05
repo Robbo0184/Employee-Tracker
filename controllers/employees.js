@@ -10,9 +10,27 @@ const getEmployees = wrapAsync(async (req, res, next) => {
     res.render('employees/index', { employees });
 })
 
+
+
+
 const getNewEmployeeForm = (req, res) => {
     res.render('employees/new');
 }
+
+// new 
+const searchEmployees = wrapAsync(async(req, res, next) => {
+    const info = req.query.searchEmployees;
+    const employee = await Employee.find({ firstName: info} || { lastName: info });
+    if (employee) {
+        res.render('employees/search', { employee });
+    } else {
+        res.send('Sorry!!!')
+    }
+
+})
+
+
+
 
 const createNewEmployee = wrapAsync(async (req, res, next) => {
     req.body.isSupervisor = !!req.body.isSupervisor
@@ -61,5 +79,6 @@ module.exports = {
     getSpecificEmployee,
     renderEmployeeEditForm,
     updateEmployee,
-    deleteEmployee
+    deleteEmployee,
+    searchEmployees
 }

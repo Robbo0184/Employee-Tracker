@@ -10,6 +10,7 @@ const {
     handleValidationErr
 } = require('./functions')
 
+
 const employeeRouter = require('./routes/employees')
 
 mongoose.connect('mongodb://localhost:27017/employeeData', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -28,6 +29,10 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+// serve static public file (where css is)
+app.use(express.static(path.join(__dirname, 'public')))
+
+
 app.use('/employees', employeeRouter)
 
 
@@ -42,6 +47,7 @@ app.use((err, req, res, next) => {
     const { status = 500, message = 'Something Went Wrong' } = err;
     res.status(status).send(message)
 })
+
 
 
 app.listen(3000, () => {
